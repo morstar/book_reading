@@ -1,0 +1,16 @@
+<div id="book_show">
+	<div id="show_banner">
+		<div class="wrapper_skinny">
+			<h1><%= @book.title %></h1>
+			<p class="description"><%= @book.description %></p>
+		</div>
+	</div>
+</div>
+
+<div id="breadcrumb">
+	<%= link_to book_path do %>
+		All Books
+		<span>/</span>
+		Book 1
+	<% end %>
+</div>

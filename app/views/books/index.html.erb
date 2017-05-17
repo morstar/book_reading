@@ -1,0 +1,21 @@
+<div id="banner" class="books_banner">
+	<h1>目录</h1>
+</div>
+
+<div id="books" class="cf">
+	<div class="wrapper">
+		<ul>
+			<% @books.each do |book| %>
+				<%= link_to book do %>
+					<li>
+						<img src="#">
+						<div class="book_overview">
+							<h2><%= book.title %></h2>
+							<p class="page_count">1 page</p>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+</div>
