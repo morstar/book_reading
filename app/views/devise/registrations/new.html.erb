@@ -1,4 +1,6 @@
-<h2>注册书籍</h2>
+<div id="banner" class="sign_up_banner">
+  <h2>注册书籍</h2>
+</div>
 
 <div id="form">
   <div class="wrapper_skinny">
@@ -6,17 +8,17 @@
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :title %><br />
+        <%= f.label :书名 %><br />
         <%= f.text_field :title, autofocus: true %>
       </div>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :邮件地址 %><br />
         <%= f.email_field :email %>
       </div>
 
       <div class="field">
-        <%= f.label :password %>
+        <%= f.label :密码 %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
@@ -24,7 +26,7 @@
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :再次确认密码 %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 
