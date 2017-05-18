@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 before_action :find_book
-before_action :find_page, only: [:show]
+before_action :find_page, only: [:show, :edit, :update, :destroy]
 
 	def new
 		@page = @book.pages.new
@@ -17,6 +17,23 @@ before_action :find_page, only: [:show]
 
 	def show
 		@pages = Page.where(book_id: @book).order("created_at DESC").reject { |e| e.id == @page.id}
+	end
+
+	def edit
+		
+	end
+
+	def update
+		if @page.update page_params
+			redirect_to book_page_path(@book, @page), notice: "Page was succesfully updated!"
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@page.destroy
+		redirect_to root_path
 	end
 
 private
