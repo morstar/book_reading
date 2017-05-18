@@ -1,0 +1,43 @@
+<div id="book_show">
+	<div id="show_banner">
+		<div class="wrapper_skinny">
+			<h1><%= @book.title %></h1>
+		</div>
+	</div>
+
+	<div id="links">
+		<div class="wrapper_skinny">
+			<ul>
+				<li class="current">Pages</li>
+				<li><%= link_to "Add New Page", new_book_page_path(@book) %></li>
+				<li><%= link_to "Book Settings", edit_book_registration_path %></li>
+				<li><%= link_to "View Books", book_path(current_book) %></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="pages">
+		<div class="wrapper_skinny">
+			<ul class="cf">
+				<%= @pages.each do |page| %>
+					<li class="cf">
+						<div class="page_thumbnail">
+							<a href="page.html">
+								<img src="">
+							</a>
+						</div>
+						<div class="page_overview">
+							<h2><%= link_to page.description, book_page_path(@book, page) %></h2>
+							<p class="description">description</p>
+							<div class="authorized_links">
+								<%= link_to "Edit", edit_book_page_path(@book, page) %>
+								<%= link_to "Delete", book_page_path(@book, page), method: :delete, data: {confirm: "Are you sure?"} %>
+							</div>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+
+</div>

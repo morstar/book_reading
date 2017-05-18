@@ -1,11 +1,30 @@
-<h1>New Page</h1>
+<div id="book_show">
+	<div id="show_banner">
+		<div class="wrapper_skinny">
+			<h1><%= @book.title %></h1>
+		</div>
+	</div>
 
-<%= form_for ([@book, @page]) do |f| %>
-	<%= f.label :description %><br>
-	<%= f.text_area :description %>
+	<div id="links">
+		<div class="wrapper_skinny">
+			<ul>
+				<li><%= link_to "Pages", root_path %></li>
+				<li class="current" >Add New Page</li>
+				<li><%= link_to "Book Settings", edit_book_registration_path %></li>
+				<li><%= link_to "View Books", book_path(current_book) %></li>
+			</ul>
+		</div>
+	</div>
 
-	<br>
-	<br>
-
-	<%= f.submit  %>
-<% end %>
+	<div id="form">
+		<div class="wrapper_skinny">
+			<%= form_for ([@book, @page]) do |f| %>
+				<div class="field">
+					<%= f.label :description %><br>
+					<%= f.text_area :description %>
+				</div>
+				<%= f.submit class: "button button_highlight button_block" %>
+			<% end %>
+		</div>
+	</div>
+</div>
