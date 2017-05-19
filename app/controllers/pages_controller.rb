@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
-before_action :find_book
-before_action :find_page, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_book!, except: [:show]
+	before_action :require_permission
+	before_action :find_book
+	before_action :find_page, only: [:show, :edit, :update, :destroy]
 
 	def new
 		@page = @book.pages.new
@@ -48,5 +50,12 @@ private
 
 	def find_page
 		@page = Page.find(params[:id])
+	end
+
+	def require_permission
+		@book =Book.find(params[:book_id])
+		if current_book != @book
+			redirect_to root_path, notice: "Sorry, you're not allow to view that page."
+		end
 	end
 end
