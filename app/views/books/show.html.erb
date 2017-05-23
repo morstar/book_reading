@@ -7,11 +7,11 @@
 	</div>
 
 	<div id="breadcrumb">
-		<%= link_to book_path do %>
-			All Books
-			<span>/</span>
-			<%= @book.title %>
-		<% end %>
+		<%= link_to "All Books", books_path %>
+		<span>/</span>
+		<%= @book.title %>
+		<span>/</span>
+		<%= @book.id %>
 	</div>
 
 		<% @pages.each do |page| %>
