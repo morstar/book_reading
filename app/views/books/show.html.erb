@@ -12,27 +12,14 @@
 			<span>/</span>
 			<%= @book.title %>
 		<% end %>
-
-		<div id="books">
-			<div class="wrapper_skinny">
-				<ul class="cf">
-					<% @pages.each do |page| %>
-						<li class="cf">
-							<div class="episode_thumbnail">
-								<a href="#">
-									<%= image_tag page.thumbnail.url(:large) %>
-								</a>
-							</div>
-							<div class="episode_overview">
-								<h2><%= link_to page.description, book_page_path(@book, page) %></h2>
-								<br>
-							</div>
-						</li>
-					<% end %>
-				</ul>
-			</div>
-		</div>
 	</div>
-</div>
+
+		<% @pages.each do |page| %>
+			<div id="page_show">
+				<%= image_tag page.thumbnail.url(:large) %>
+				<h2><%= page.description %></h2>
+			</div>
+		<% end %>
 
 <%= will_paginate @pages, previous_label: "上一页", next_label: "下一页" %>
+</div>

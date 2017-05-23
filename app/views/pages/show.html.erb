@@ -4,18 +4,15 @@
 		<%= link_to books_path do %>
 			All Books
 			<span>/</span>
-			<%= @book.title %>
-			<span>/</span>
-			<%= @page.id %>
 		<% end %>
+			<%= @book.title %>
 	</div>
-
-	<div id="page_content">
-		<div class="wrapper_wide">
-			<%= image_tag @page.thumbnail.url(:large), class: "current_page_thumbnail" %>
+	<% @pages.each do |page| %>
+		<div id="page_show">
+			<%= image_tag @page.thumbnail.url(:large) %>
 			<h2><%= @page.description %></h2>
 		</div>
-	</div>
+	<% end %>
 </div>
 
-		<%= will_paginate @pages, previous_label: "上一页", next_label: "下一页" %>
+<%= will_paginate @pages, previous_label: "上一页", next_label: "下一页" %>
