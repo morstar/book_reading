@@ -4,7 +4,7 @@
 
 <div id="books" class="cf">
 	<div class="wrapper">
-		<ul>
+		<ul class="cf">
 			<% @books.each do |book| %>
 				<%= link_to book do %>
 					<li>
@@ -17,5 +17,7 @@
 				<% end %>
 			<% end %>
 		</ul>
+
+		<%= will_paginate @books, previous_label: "上一页", next_label: "下一页" %>
 	</div>
 </div>
