@@ -15,7 +15,7 @@ class BooksController < ApplicationController
 	private
 
 	def find_page
-		@pages = Page.where(book_id: @book).order("id DESC").paginate(:page => params[:page], :per_page => 12)
+		@pages = Page.where(book_id: @book).order(:id).paginate(:page => params[:page], :per_page => 1)
 	end
 
 	def find_book
