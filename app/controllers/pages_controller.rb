@@ -16,9 +16,9 @@ class PagesController < ApplicationController
 			render 'new'
 		end
 	end
-
+ 
 	def show
-		@pages = Page.where(book_id: @book).order("id ASC").reject { |e| e.id == @page.id}
+		@pages = Page.where(book_id: @book).order('id desc').paginate(:page => params[:page], :per_page => 1)
 	end
 
 	def edit

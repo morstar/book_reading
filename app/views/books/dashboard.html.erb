@@ -11,7 +11,7 @@
 				<li class="current">Pages</li>
 				<li><%= link_to "Add New Page", new_book_page_path(@book) %></li>
 				<li><%= link_to "Book Settings", edit_book_registration_path %></li>
-				<li><%= link_to "View Books", book_path(current_book) %></li>
+				<li><%= link_to "View Books", books_path %></li>
 			</ul>
 		</div>
 	</div>
@@ -19,7 +19,7 @@
 	<div id="pages">
 		<div class="wrapper_skinny">
 			<ul class="cf">
-				<%= @pages.each do |page| %>
+				<% @pages.each do |page| %>
 					<li class="cf">
 						<div class="page_thumbnail">
 							<a href="#">
