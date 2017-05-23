@@ -18,7 +18,7 @@ class PagesController < ApplicationController
 	end
 
 	def show
-		@pages = Page.where(book_id: @book).order("created_at DESC").reject { |e| e.id == @page.id}
+		@pages = Page.where(book_id: @book).order("id ASC").reject { |e| e.id == @page.id}
 	end
 
 	def edit
@@ -41,7 +41,7 @@ class PagesController < ApplicationController
 private
 
 	def page_params
-		params.require(:page).permit(:description)
+		params.require(:page).permit(:description, :thumbnail, :id)
 	end
 
 	def find_book

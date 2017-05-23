@@ -5,4 +5,5 @@ class Book < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :pages
+ 
 end

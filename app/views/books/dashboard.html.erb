@@ -22,13 +22,13 @@
 				<%= @pages.each do |page| %>
 					<li class="cf">
 						<div class="page_thumbnail">
-							<a href="page.html">
-								<img src="">
+							<a href="#">
+								<%= image_tag page.thumbnail.url(:large) %>
 							</a>
 						</div>
 						<div class="page_overview">
 							<h2><%= link_to page.description, book_page_path(@book, page) %></h2>
-							<p class="description">description</p>
+							<p>Page No. <%= page.id %></p>
 							<div class="authorized_links">
 								<%= link_to "Edit", edit_book_page_path(@book, page) %>
 								<%= link_to "Delete", book_page_path(@book, page), method: :delete, data: {confirm: "Are you sure?"} %>

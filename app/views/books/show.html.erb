@@ -5,29 +5,34 @@
 			<p class="description"><%= @book.description %></p>
 		</div>
 	</div>
-</div>
 
-<div id="breadcrumb">
-	<%= link_to book_path do %>
-		All Books
-		<span>/</span>
-		Book 1
-	<% end %>
-</div>
+	<div id="breadcrumb">
+		<%= link_to book_path do %>
+			All Books
+			<span>/</span>
+			<%= @book.title %>
+		<% end %>
 
-<div id="pages">
-	<div class="wrapper_skinny">
-		<ul class="cf">
-			<li class="cf">
-				<div class="page_thumbnail">
-					<a href="#">
-						<img src="">
-					</a>
-				</div>
-				<div class="page_overview">
-					<h2><a href="#">title</a></h2>
-				</div>
-			</li>
-		</ul>
+		<div id="books">
+			<div class="wrapper_skinny">
+				<ul class="cf">
+					<% @pages.each do |page| %>
+						<li class="cf">
+							<div class="episode_thumbnail">
+								<a href="#">
+									<%= image_tag page.thumbnail.url(:large) %>
+								</a>
+							</div>
+							<div class="episode_overview">
+								<h2><%= link_to page.description, book_page_path(@book, page) %></h2>
+								<br>
+							</div>
+						</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
 	</div>
+
 </div>
+

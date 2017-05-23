@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517131742) do
+ActiveRecord::Schema.define(version: 20170519072859) do
 
   create_table "books", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,8 +34,12 @@ ActiveRecord::Schema.define(version: 20170517131742) do
   create_table "pages", force: :cascade do |t|
     t.text     "description"
     t.integer  "book_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
     t.index ["book_id"], name: "index_pages_on_book_id"
   end
 
