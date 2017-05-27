@@ -18,7 +18,7 @@ class PagesController < ApplicationController
 	end
  
 	def show
-		@pages = Page.where(book_id: @book).order(:id).paginate(:page => params[:page], :per_page => 3)
+		@pages = Page.where(book_id: @book).order(:id).paginate(:page => params[:page], :per_page => 1)
 	end
 
 	def edit
@@ -41,7 +41,7 @@ class PagesController < ApplicationController
 private
 
 	def page_params
-		params.require(:page).permit(:description, :thumbnail, :id)
+		params.require(:page).permit(:description, :thumbnail, :id, :mp3)
 	end
 
 	def find_book

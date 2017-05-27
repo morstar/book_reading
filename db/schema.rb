@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519072859) do
+ActiveRecord::Schema.define(version: 20170524105817) do
 
   create_table "books", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 20170519072859) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
+    t.string   "mp3_file_name"
+    t.string   "mp3_content_type"
+    t.integer  "mp3_file_size"
+    t.datetime "mp3_updated_at"
     t.index ["book_id"], name: "index_pages_on_book_id"
   end
 
